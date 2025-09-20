@@ -1,4 +1,10 @@
-# 🎮 APT-CASINO: AUTONOMOUS PROVABLY TRANSPARENT CASINO
+# 🎮 APT-Casino: A hyper-composable, Fully On-Chain, Provably-Fair Casino 
+
+A couple of days back, I was was on etherscan exploring some transactions and saw an advertisement of [https://stake.com/](url) which was giving 200% bonus on first deposit, I deposited 120 USDT into stake.com they gave 360 USDT as total balance in their controlled custodial wallet and when I started playing casino games I was shocked to see that I was only able to play with $1 per game and was unable to increase the betting amount beyond $1 and when I tried to explore and play other games on the platform the issue was persisting, I reached the customer support and got to know that this platform has cheated me under the name of wager limits as I was using the bonus scheme of 200%.
+
+When I asked the customer support for refund they showed a mathematical equation which says if refund then I have to play $12,300 worth of gameplay and this was a big shock for me. Thereby, In the hope of getting the deposited money back, I played the different games of stake.com like roulette, mines, spin wheel, etc, the entire night and lost all the money and time.
+
+I was very annoyed of that's how Apt-Casino was born, gamblefi all in one platform where new web3 users can play games, perform gambling but have a safe, secure, transparent environment that does not scam any of their users. Also, I wanted to address common issues in traditional gambling platforms.
 
 > **Revolutionizing GambleFi with Arbitrum L2 & Chainlink VRF**
 
@@ -210,14 +216,3 @@ The overwhelming response demonstrates the strong market demand for transparent,
 APT-Casino on Arbitrum is not just a casino. It's a **decentralized probability engine**, a **financialized entertainment protocol**, and a **GambleFi layer** redefining how risk, randomness, and rewards converge in Web3.
 
 This is not gambling. This is mathematics you can verify, luck you can own, and trust you don't need.
-
----
-
-<div align="center">
-  <p>Built with ❤️ by the APT-Casino Team</p>
-  <p>
-    <a href="https://twitter.com/amaanbiz">Twitter</a> •
-    <a href="https://github.com/AmaanSayyad/Apt-Casino-Arbitrum">GitHub</a>
-  </p>
-</div>
-
