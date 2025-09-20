@@ -57,7 +57,7 @@ Revolutionizing GambleFi with Arbitrum L2 & Chainlink VRF
 | High fees | Gas-heavy transactions | **Gasless meta-transactions** |
 | Custody of funds | Partial custody | **Zero custody of user funds** |
 | Slow payouts | Block confirmation waits | **1.5s result time** |
-| Hidden house edge | Transparent house edge | **Transparent + competitive edge (1-3%)** |
+| Hidden house edge | Transparent house edge | **Transparent + No Edge** |
 
 ---
 
