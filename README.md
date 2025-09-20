@@ -61,6 +61,27 @@ This means your roulette wheel resolves in under 2 seconds, with trustless fairn
 
 ## 🎲 GAME SUITE: CRYPTOGRAPHICALLY SECURED ENTERTAINMENT
 
+### 🎮 Game Logic Sequence
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant FE as Frontend
+    participant API as API Layer
+    participant SC as Smart Contract
+    participant VRF as Chainlink VRF
+    
+    U->>FE: Place Bet
+    FE->>API: Process Bet
+    API->>SC: Request Random Number
+    SC->>VRF: Request Randomness
+    Note over SC,VRF: Cryptographically Secure<br/>Random Number Generation
+    VRF-->>SC: Return Verified Random Number
+    SC-->>API: Return Game Result
+    API-->>FE: Process Result
+    FE-->>U: Display Outcome & Payout
+```
+
 ### 🎯 Roulette
 - **Supported Bets**: Straight, Split, Street, Corner, Line, Dozen, Column, Red/Black, Odd/Even, High/Low
 - **RNG**: VRF-seeded spin
@@ -87,6 +108,43 @@ This means your roulette wheel resolves in under 2 seconds, with trustless fairn
 
 <img width="1536" height="864" alt="355232334-ec900128-0414-4311-b7a1-46ac75d39288" src="https://github.com/user-attachments/assets/bb2ee122-02a7-42ee-9d35-5f68f47ecc6f" />
 
+### 🔄 System Architecture Diagram
+
+```mermaid
+graph TB
+    subgraph "Frontend Layer"
+        A[Next.js App] --> B[Game UI Components]
+        B --> C[Wallet Connection]
+        B --> D[Game History]
+    end
+    
+    subgraph "Middleware Layer"
+        E[API Routes] --> F[VRF Service]
+        E --> G[Game Processors]
+        E --> H[Treasury Service]
+    end
+    
+    subgraph "Blockchain Layer"
+        I[Arbitrum Network] --> J[CasinoVRFConsumer Contract]
+        J --> K[Chainlink VRF]
+        I --> L[Treasury Contract]
+    end
+    
+    C --> E
+    D --> E
+    F --> J
+    G --> J
+    H --> L
+    
+    classDef frontend fill:#f9f,stroke:#333,stroke-width:1px
+    classDef middleware fill:#bbf,stroke:#33f,stroke-width:1px
+    classDef blockchain fill:#bfb,stroke:#3f3,stroke-width:1px
+    
+    class A,B,C,D frontend
+    class E,F,G,H middleware
+    class I,J,K,L blockchain
+```
+
 
 ### 🧠 System Components
 
@@ -110,6 +168,28 @@ contracts/
 ```
 
 ### 🔄 Randomness Flow
+
+```mermaid
+flowchart TD
+    A[Player] -->|1. Initiates Game| B[Game UI]
+    B -->|2. Request Random Number| C[CasinoVRFConsumer.sol]
+    C -->|3. requestRandomWords| D[Chainlink VRF Coordinator]
+    D -->|4. Generate VRF| E[Chainlink Oracle]
+    E -->|5. Return Verified Random Number| D
+    D -->|6. fulfillRandomWords| C
+    C -->|7. Store Random Number| F[VRF Storage]
+    B -->|8. Fetch Random Number| F
+    B -->|9. Calculate Game Outcome| G[Game Logic]
+    G -->|10. Display Result| A
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#33f,stroke-width:2px
+    style D fill:#bfb,stroke:#3f3,stroke-width:2px
+    style E fill:#bfb,stroke:#3f3,stroke-width:2px
+    style F fill:#fbb,stroke:#f33,stroke-width:2px
+```
+
+The randomness flow demonstrates how APT-Casino ensures provably fair outcomes:
 
 1. **Request**: Game initiates VRF request through `CasinoVRFConsumer.sol`
 2. **Generation**: Chainlink VRF produces cryptographically secure random numbers
@@ -198,6 +278,31 @@ The application is fully responsive and optimized for:
 - **Android Chrome**: Full support with optimized UI
 - **Hardware wallets**: Ledger, Trezor integration
 - **Software wallets**: MetaMask, Rainbow, Trust Wallet, etc.
+
+### 🧭 User Journey Flow
+
+```mermaid
+flowchart LR
+    A[New User] --> B{Has Wallet?}
+    B -->|Yes| C[Connect Wallet]
+    B -->|No| D[Create Keyless Wallet]
+    C --> E[Deposit Funds]
+    D --> E
+    E --> F[Browse Games]
+    F --> G[Select Game]
+    G --> H[Place Bet]
+    H --> I[View Result]
+    I --> J{Win?}
+    J -->|Yes| K[Collect Winnings]
+    J -->|No| L[Try Again]
+    K --> F
+    L --> F
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#33f,stroke-width:2px
+    style G fill:#bfb,stroke:#3f3,stroke-width:2px
+    style K fill:#fbb,stroke:#f33,stroke-width:2px
+```
 
 ## 📣 COMMUNITY TRACTION
 
