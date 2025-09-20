@@ -13,20 +13,20 @@ module.exports = {
     },
   },
   networks: {
-    sepolia: {
-      url: process.env.NEXT_PUBLIC_SEPOLIA_RPC || "https://ethereum-sepolia.publicnode.com",
-      accounts: process.env.TREASURY_PRIVATE_KEY ? [process.env.TREASURY_PRIVATE_KEY] : [],
-      chainId: 11155111,
+    'arbitrum-sepolia': {
+      url: process.env.NEXT_PUBLIC_ARBITRUM_SEPOLIA_RPC || "https://sepolia-rollup.arbitrum.io/rpc",
+      accounts: ["0x080c0b0dc7aa27545fab73d29b06f33e686d1491aef785bf5ced325a32c14506"],
+      chainId: 421614,
       timeout: 120000, // 2 minutes
       httpHeaders: {
         "User-Agent": "hardhat"
       }
     },
-    arbitrumSepolia: {
-      url: process.env.NEXT_PUBLIC_ARBITRUM_SEPOLIA_RPC || "https://sepolia-rollup.arbitrum.io/rpc",
+    'arbitrum-one': {
+      url: process.env.NEXT_PUBLIC_ARBITRUM_ONE_RPC || "https://arb1.arbitrum.io/rpc",
       accounts: process.env.TREASURY_PRIVATE_KEY ? [process.env.TREASURY_PRIVATE_KEY] : [],
-      chainId: 421614,
-      timeout: 120000, // 2 minutes
+      chainId: 42161,
+      timeout: 120000,
       httpHeaders: {
         "User-Agent": "hardhat"
       }
@@ -38,19 +38,9 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      sepolia: process.env.ETHERSCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
+      arbitrumOne: process.env.ARBISCAN_API_KEY || "",
     },
-    customChains: [
-      {
-        network: "arbitrumSepolia",
-        chainId: 421614,
-        urls: {
-          apiURL: "https://api-sepolia.arbiscan.io/api",
-          browserURL: "https://sepolia.arbiscan.io"
-        }
-      }
-    ]
   },
   paths: {
     sources: "./contracts",

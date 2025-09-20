@@ -18,7 +18,7 @@ import { HiLightningBolt, HiOutlineTrendingUp, HiOutlineChartBar } from "react-i
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import useWalletStatus from '@/hooks/useWalletStatus';
-import ArbitrumConnectWalletButton from '@/components/ArbitrumConnectWalletButton';
+import EthereumConnectWalletButton from '@/components/EthereumConnectWalletButton';
 import Image from "next/image";
 import "./mines.css";
 import GameDetail from "@/components/GameDetail";

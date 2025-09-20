@@ -8,7 +8,7 @@ const VRF_COORDINATOR_ABI = [
   "function getSubscription(uint64 subId) external view returns (uint96 balance, uint64 reqCount, address owner, address[] memory consumers)",
 ];
 
-const VRF_COORDINATOR_ADDRESS = "0x5CE8D5A2BC84beb22a398CCA51996F7930313D61";
+const VRF_COORDINATOR_ADDRESS = "0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625";
 
 async function main() {
   console.log("🔗 Adding VRF Consumer to Subscription...");

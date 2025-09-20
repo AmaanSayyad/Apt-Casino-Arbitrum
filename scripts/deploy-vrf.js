@@ -2,11 +2,11 @@ const { ethers } = require("hardhat");
 
 // Chainlink VRF v2 configuration for Arbitrum Sepolia testnet
 const VRF_CONFIG = {
-  COORDINATOR: "0x5CE8D5A2BC84beb22a398CCA51996F7930313D61", // Arbitrum Sepolia VRF Coordinator
-  KEY_HASH: "0x1770bdc7eec7771f7ba4ffd640f34260d7f095b79c92d34a5b2551d6f6cfd2be", // 50 gwei Key Hash
+  COORDINATOR: "0x6D80646bEAdd07cE68cab36c27c626790bBcf17f", // Arbitrum Sepolia VRF Coordinator
+  KEY_HASH: "0x83d1b6e3388bed3d76426974512bb0d270e9542a765cd667242ea26c0cc0b730", // Arbitrum Sepolia Key Hash
   SUBSCRIPTION_ID: "0", // Start with 0, will be updated after deployment
   CALLBACK_GAS_LIMIT: 2500000,
-  REQUEST_CONFIRMATIONS: 1,
+  REQUEST_CONFIRMATIONS: 3,
 };
 
 async function main() {
@@ -26,7 +26,7 @@ async function main() {
   console.log("Account balance:", ethers.formatEther(await deployer.provider.getBalance(deployer.address)), "ETH");
 
   // Validate treasury address
-  const treasuryAddress = process.env.TREASURY_ADDRESS;
+  const treasuryAddress = process.env.TREASURY_ADDRESS || "0xb424d2369F07b925D1218B08e56700AF5928287b";
   if (!ethers.isAddress(treasuryAddress)) {
     throw new Error(`Invalid treasury address: ${treasuryAddress}`);
   }
@@ -69,7 +69,7 @@ async function main() {
     transactionHash: contract.deploymentTransaction().hash,
     deployer: deployer.address,
     treasury: treasuryAddress,
-    network: "arbitrumSepolia",
+    network: "sepolia",
     vrfConfig: VRF_CONFIG,
     deployedAt: new Date().toISOString(),
   };
@@ -85,22 +85,22 @@ async function main() {
 
   // Save deployment info
   fs.writeFileSync(
-    path.join(deploymentsDir, "vrf-consumer-arbitrum-sepolia.json"),
+    path.join(deploymentsDir, "vrf-consumer-sepolia.json"),
     JSON.stringify(deploymentInfo, null, 2)
   );
 
-  console.log("\n💾 Deployment info saved to deployments/vrf-consumer-arbitrum-sepolia.json");
+  console.log("\n💾 Deployment info saved to deployments/vrf-consumer-sepolia.json");
 
   // Instructions for next steps
   console.log("\n📋 Next Steps:");
-  console.log("1. Create a Chainlink VRF v2 subscription at https://vrf.chain.link/arbitrum-sepolia");
+  console.log("1. Create a Chainlink VRF v2 subscription at https://vrf.chain.link/");
   console.log("2. Fund the subscription with LINK tokens");
   console.log("3. Add this contract as a consumer to your subscription");
   console.log("4. Update VRF_SUBSCRIPTION_ID in your .env file");
   console.log("5. Update the contract's subscription ID using updateSubscriptionId()");
   
-  if (process.env.ARBISCAN_API_KEY) {
-    console.log("\n🔍 Verifying contract on Arbiscan...");
+  if (process.env.ETHERSCAN_API_KEY) {
+    console.log("\n🔍 Verifying contract on Etherscan...");
     try {
       await hre.run("verify:verify", {
         address: contractAddress,
@@ -111,11 +111,11 @@ async function main() {
           treasuryAddress,
         ],
       });
-      console.log("✅ Contract verified on Arbiscan");
+      console.log("✅ Contract verified on Etherscan");
     } catch (error) {
       console.log("❌ Verification failed:", error.message);
       console.log("You can verify manually later using:");
-      console.log(`npx hardhat verify --network arbitrumSepolia ${contractAddress} ${VRF_CONFIG.SUBSCRIPTION_ID} ${VRF_CONFIG.COORDINATOR} ${VRF_CONFIG.KEY_HASH} ${treasuryAddress}`);
+      console.log(`npx hardhat verify --network sepolia ${contractAddress} ${VRF_CONFIG.SUBSCRIPTION_ID} ${VRF_CONFIG.COORDINATOR} ${VRF_CONFIG.KEY_HASH} ${treasuryAddress}`);
     }
   }
 }

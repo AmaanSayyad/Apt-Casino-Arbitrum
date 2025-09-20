@@ -3,7 +3,7 @@ import React from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import { MetaMaskConnector } from '@wagmi/connectors/metaMask';
 
-export default function ArbitrumConnectWalletButton() {
+export default function EthereumConnectWalletButton() {
   const { address, isConnected } = useAccount();
   const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
