@@ -12,11 +12,20 @@ const WheelHistory = ({ gameHistory = [] }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
 
-  // Open Etherscan link for transaction hash
-  const openEtherscan = (hash) => {
+   // Open Arbiscan link for transaction hash
+   const openArbiscan = (hash) => {
     if (hash && hash !== 'unknown') {
-      const network = process.env.NEXT_PUBLIC_NETWORK || 'sepolia';
-      const explorerUrl = `https://${network}.etherscan.io/tx/${hash}`;
+      const network = process.env.NEXT_PUBLIC_NETWORK || 'arbitrum-sepolia';
+      let explorerUrl;
+      
+      if (network === 'arbitrum-sepolia') {
+        explorerUrl = `https://sepolia.arbiscan.io/tx/${hash}`;
+      } else if (network === 'arbitrum-one') {
+        explorerUrl = `https://arbiscan.io/tx/${hash}`;
+      } else {
+        explorerUrl = `https://sepolia.etherscan.io/tx/${hash}`;
+      }
+      
       window.open(explorerUrl, '_blank');
     }
   };
