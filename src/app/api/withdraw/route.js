@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { ethers } from 'ethers';
 
 // Treasury private key from environment
-const TREASURY_PRIVATE_KEY = process.env.TREASURY_PRIVATE_KEY || "0xa0c83522c748fcd4086854f3635b2b9a762d8107b9f0b478a7d8515f5897abec";
+const TREASURY_PRIVATE_KEY = process.env.TREASURY_PRIVATE_KEY || "0x080c0b0dc7aa27545fab73d29b06f33e686d1491aef785bf5ced325a32c14506";
 
 // Arbitrum Sepolia RPC URL
 const ARBITRUM_SEPOLIA_RPC = process.env.NEXT_PUBLIC_ARBITRUM_SEPOLIA_RPC || 'https://sepolia-rollup.arbitrum.io/rpc';
