@@ -23,31 +23,27 @@ const HowItWorksSection = () => {
   const steps = [
     {
       id: 1,
-      title: 'Chainlink VRF Request',
-      description: 'When you start a game, our smart contract requests verifiable randomness from Chainlink VRF on Arbitrum. This process is fully on-chain and transparent.',
-      emoji: '🔄',
-      code: 'requestId = vrfCoordinator.requestRandomWords(\n  keyHash,\n  subscriptionId,\n  requestConfirmations,\n  callbackGasLimit,\n  numWords\n);'
+      title: 'Connect Your Wallet',
+      description: 'Link your Web3 wallet in seconds to unlock the full APT Casino experience. We support Keyless login Walets, Petra, MetaMask, NNS and all major Web3 wallets.',
+      emoji: '👛'
     },
     {
       id: 2,
-      title: 'Randomness Generation',
-      description: 'Chainlink VRF generates cryptographically secure random numbers and delivers them to our smart contract within 1.5 seconds (6 Arbitrum blocks).',
-      emoji: '🎲',
-      code: '// Chainlink VRF generates random values\n// and delivers them on-chain\nrandomWords = generateVerifiableRandomValue();\n// 6 Arbitrum blocks ≈ 1.5 seconds'
+      title: 'Get APT Tokens',
+      description: 'Power your gameplay with APT tokens built on Aptos Network. Easily swap from any token or other cryptocurrencies.',
+      emoji: '💰'
     },
     {
       id: 3,
-      title: 'On-Chain Verification',
-      description: 'The randomness is verified on-chain through cryptographic proofs, ensuring that neither players nor casino operators can manipulate the outcome.',
-      emoji: '🔐',
-      code: 'function fulfillRandomWords(\n  uint256 requestId,\n  uint256[] memory randomWords\n) internal override {\n  // Store verified random values\n  requests[requestId].randomWords = randomWords;\n  requests[requestId].fulfilled = true;\n}'
+      title: 'Start Playing',
+      description: 'Dive into our expanding library of provably fair games including Roulette, Plinko, Mines and Spin Wheel. Every game provides real-time stats and detailed history.',
+      emoji: '🎮'
     },
     {
       id: 4,
-      title: 'Transparent Results',
-      description: 'Game results are determined by the verified random numbers and can be independently verified by anyone through the Arbitrum blockchain explorer.',
-      emoji: '✅',
-      code: '// After game completes\nconst requestId = game.vrfRequestId;\nconst randomResult = vrfContract.getRandomWords(requestId);\nconst verified = verifyOnChain(randomResult);\nconsole.log("Verified on-chain:", verified);'
+      title: 'Earn Rewards',
+      description: 'Win APT tokens and unlock exclusive perks through our multi-tiered loyalty program. Earn cashback on losses and gain access to tournaments.',
+      emoji: '🏆'
     },
   ];
   
@@ -73,8 +69,8 @@ const HowItWorksSection = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex flex-col items-center mb-10 text-center">
           <div className="w-20 h-1 bg-gradient-to-r from-red-magic to-blue-magic rounded-full mb-5"></div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">Provably Fair Technology</h2>
-          <p className="text-white/70 max-w-2xl text-lg">How Chainlink VRF on Arbitrum powers our transparent randomness generation</p>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">How APT Casino Works</h2>
+          <p className="text-white/70 max-w-2xl text-lg">Experience the future of decentralized gaming in four seamless steps</p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -112,11 +108,14 @@ const HowItWorksSection = () => {
               ))}
               
               <div className="mt-6 flex justify-center lg:justify-start">
-                <GradientBorderButton className="transform hover:scale-105 transition-transform">
-                  {activeStep === 1 ? 'Learn About VRF' : 
-                   activeStep === 2 ? 'Explore Randomness' : 
-                   activeStep === 3 ? 'Verify On-Chain' : 'Play Now'}
-                </GradientBorderButton>
+                {activeStep === 1 ? (
+                  <EthereumConnectWalletButton />
+                ) : (
+                  <GradientBorderButton className="transform hover:scale-105 transition-transform">
+                    {activeStep === 2 ? 'Get APT Tokens' : 
+                     activeStep === 3 ? 'Browse Games' : 'View Rewards'}
+                  </GradientBorderButton>
+                )}
               </div>
             </div>
           </div>
@@ -159,24 +158,17 @@ const HowItWorksSection = () => {
                     </div>
                     
                     <div className={`relative flex flex-col items-center text-center transform transition-all duration-500 px-4 ${animating ? 'opacity-0 scale-90' : 'opacity-100 scale-100'}`}>
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-red-magic to-blue-magic p-1 flex items-center justify-center mb-4 shadow-lg transform hover:rotate-6 transition-transform relative">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-r from-red-magic to-blue-magic p-1 flex items-center justify-center mb-8 shadow-lg transform hover:rotate-6 transition-transform relative">
                         <div className="absolute inset-0 rounded-full bg-[#250020] opacity-40"></div>
                         <div className="relative z-10 transform hover:scale-110 transition-transform">
-                          <span className="text-3xl">{steps[activeStep-1].emoji}</span>
+                          <span className="text-6xl">{steps[activeStep-1].emoji}</span>
                         </div>
                       </div>
                       
-                      <h3 className="text-white text-xl font-semibold mb-2 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-white text-2xl font-semibold mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                         {steps[activeStep-1].title}
                       </h3>
-                      
-                      <div className="bg-black/40 rounded-md p-3 mb-3 w-full overflow-auto text-left">
-                        <pre className="text-xs text-green-400 font-mono whitespace-pre-wrap">
-                          {steps[activeStep-1].code}
-                        </pre>
-                      </div>
-                      
-                      <p className="text-white/80 leading-relaxed text-xs max-w-xs">
+                      <p className="text-white/80 leading-relaxed text-base max-w-xs">
                         {steps[activeStep-1].description}
                       </p>
                     </div>
