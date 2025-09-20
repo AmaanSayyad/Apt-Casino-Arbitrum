@@ -224,6 +224,7 @@ export default function VRFPregenerationModal({ open, onClose }) {
       onClose={handleClose}
       maxWidth="md"
       fullWidth
+      disablePortal={true} // Disable Portal to avoid React 19 ref warning
       sx={{
         zIndex: 9999,
         '& .MuiDialog-paper': {
@@ -248,6 +249,12 @@ export default function VRFPregenerationModal({ open, onClose }) {
           borderRadius: '16px',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.9)',
           background: 'linear-gradient(135deg, rgba(10, 0, 8, 0.98) 0%, rgba(26, 0, 21, 0.98) 100%)',
+        }
+      }}
+      // Fix for React 19 ref warning
+      slotProps={{
+        backdrop: { 
+          ref: undefined 
         }
       }}
     >
