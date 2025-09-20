@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { 
   Dialog, 
   DialogTitle, 
@@ -212,6 +212,11 @@ export default function VRFPregenerationModal({ open, onClose }) {
         return 'VRF Proof System';
     }
   };
+
+  // Create custom Alert component to fix React 19 ref warning
+  const CustomAlert = forwardRef((props, ref) => {
+    return <Alert {...props} />;
+  });
 
   return (
     <Dialog 
@@ -627,9 +632,9 @@ export default function VRFPregenerationModal({ open, onClose }) {
         onClose={() => setShowSnackbar(false)}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
       >
-        <Alert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
+        <CustomAlert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
           {snackbarMessage}
-        </Alert>
+        </CustomAlert>
       </Snackbar>
     </Dialog>
   );
