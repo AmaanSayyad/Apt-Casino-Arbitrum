@@ -176,7 +176,7 @@ export default function VRFPregenerationModal({ open, onClose }) {
   const getNetworkInfo = () => {
     const network = process.env.NEXT_PUBLIC_NETWORK || 'sepolia';
     const contractAddress = process.env.NEXT_PUBLIC_VRF_CONTRACT_ADDRESS || '0x1c80757C451adce96d6cADB514036F07fc2347cb';
-    const treasuryAddress = process.env.TREASURY_ADDRESS || '0xD599B4a78f602f597973F693439e89A97eDd4369';
+    const treasuryAddress = process.env.TREASURY_ADDRESS || '0xb424d2369F07b925D1218B08e56700AF5928287b';
     
     return { network, contractAddress, treasuryAddress };
   };

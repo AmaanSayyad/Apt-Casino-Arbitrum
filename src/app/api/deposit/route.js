@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 // Treasury address from environment
-const TREASURY_ADDRESS = process.env.TREASURY_ADDRESS || "0xD599B4a78f602f597973F693439e89A97eDd4369";
+const TREASURY_ADDRESS = process.env.TREASURY_ADDRESS || "0xb424d2369F07b925D1218B08e56700AF5928287b";
 
 export async function POST(request) {
   try {
