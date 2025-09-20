@@ -48,6 +48,9 @@ This means your roulette wheel resolves in under 2 seconds, with trustless fairn
 
 - **Gasless Meta-Transactions**: Players never touch MetaMask popups; gas is abstracted via a meta-transaction relayer funded by our treasury
 - **Keyless Authentication**: Seamless login via Google/Apple OAuth + traditional wallet connections
+
+<img width="1280" height="720" alt="481350837-6c6b3f5b-60f3-4e52-ac60-a71af09a682b" src="https://github.com/user-attachments/assets/d3380db8-ea65-4bd2-a0e1-78a186014e55" />
+
 - **Non-Custodial Asset Management**: Zero custody of user funds—all balances are on-chain escrows
 
 ### 🔐 Cryptoeconomic Security Framework
@@ -81,6 +84,9 @@ This means your roulette wheel resolves in under 2 seconds, with trustless fairn
 <div align="center">
   <img width="1681" height="761" alt="Screenshot 2025-09-21 at 1 34 18 AM" src="https://github.com/user-attachments/assets/fe6f3211-3e51-4be6-ab1a-5399386288a3" />
 </div>
+
+<img width="1536" height="864" alt="355232334-ec900128-0414-4311-b7a1-46ac75d39288" src="https://github.com/user-attachments/assets/bb2ee122-02a7-42ee-9d35-5f68f47ecc6f" />
+
 
 ### 🧠 System Components
 
