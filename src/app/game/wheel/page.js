@@ -611,7 +611,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-[#070005] text-white pb-20">
+    <div className="min-h-screen bg-[#070005] text-white pb-20 game-page-container">
       {/* Header */}
       {renderHeader()}
 
