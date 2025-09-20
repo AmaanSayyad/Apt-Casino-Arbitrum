@@ -317,7 +317,7 @@ export default function VRFPregenerationModal({ open, onClose }) {
               {/* Network Configuration Info */}
               <Box sx={{ mt: 2, p: 2, bgcolor: 'rgba(139, 35, 152, 0.2)', borderRadius: '8px' }}>
                 <Typography variant="subtitle2" sx={{ color: '#8B2398', mb: 1, fontWeight: 'bold' }}>
-                  Technical Details (Optional):
+                  Technical Details:
                 </Typography>
                 {(() => {
                   const { network, contractAddress, treasuryAddress } = getNetworkInfo();
@@ -634,16 +634,19 @@ export default function VRFPregenerationModal({ open, onClose }) {
         )}
       </DialogActions>
 
-      <Snackbar
-        open={showSnackbar}
-        autoHideDuration={6000}
-        onClose={() => setShowSnackbar(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-      >
-        <CustomAlert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
-          {snackbarMessage}
-        </CustomAlert>
-      </Snackbar>
+      {showSnackbar && (
+        <Snackbar
+          open={true}
+          autoHideDuration={6000}
+          onClose={() => setShowSnackbar(false)}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+          TransitionComponent={undefined} // Disable transition to prevent scrollTop error
+        >
+          <CustomAlert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
+            {snackbarMessage}
+          </CustomAlert>
+        </Snackbar>
+      )}
     </Dialog>
   );
 }
