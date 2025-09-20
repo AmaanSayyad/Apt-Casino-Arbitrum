@@ -25,8 +25,8 @@ const UserBalanceSystem = {
     if (savedBalance) {
       return savedBalance;
     }
-    // Mock balance for demo
-    return "0.00";
+    // Return zero balance
+    return "0";
   },
   
   deposit: async (userAddress, amount, transactionHash) => {

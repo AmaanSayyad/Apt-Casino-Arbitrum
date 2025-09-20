@@ -60,13 +60,13 @@ export default function Home() {
     if (isInitialized.current) return; // Prevent multiple executions
     
     const savedBalance = loadBalanceFromStorage();
-    if (savedBalance && savedBalance !== "0") {
+    if (savedBalance) {
       console.log('Loading saved balance from localStorage:', savedBalance);
       dispatch(setBalance(savedBalance));
     } else {
-      // Set initial balance to 1 ETH for demo purposes
-      console.log('No saved balance, setting to 1 ETH for demo');
-      dispatch(setBalance("1.00000"));
+      // Initialize with zero balance
+      console.log('No saved balance, initializing with zero');
+      dispatch(setBalance("0"));
     }
     
     isInitialized.current = true; // Mark as initialized
