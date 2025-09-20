@@ -625,16 +625,20 @@ export default function VRFPregenerationModal({ open, onClose }) {
         )}
       </DialogActions>
 
-      <Snackbar
-        open={showSnackbar}
-        autoHideDuration={6000}
-        onClose={() => setShowSnackbar(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-      >
-        <CustomAlert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
-          {snackbarMessage}
-        </CustomAlert>
-      </Snackbar>
+      {showSnackbar && (
+        <Box sx={{ position: 'fixed', bottom: 16, left: 16, zIndex: 10000 }}>
+          <CustomAlert 
+            onClose={() => setShowSnackbar(false)} 
+            severity="success" 
+            sx={{ 
+              width: '100%',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.25)'
+            }}
+          >
+            {snackbarMessage}
+          </CustomAlert>
+        </Box>
+      )}
     </Dialog>
   );
 }
