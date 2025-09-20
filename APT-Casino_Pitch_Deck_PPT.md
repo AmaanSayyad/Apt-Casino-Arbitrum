@@ -20,7 +20,7 @@ Revolutionizing GambleFi with Arbitrum L2 & Chainlink VRF
 
 ## A Massive Untapped Market
 
-- Global online gambling market: **$600+ billion** (2023)
+- Global online gambling market: **$600+ billion** (2024)
 - CAGR: **11.5%** through 2028
 - Web3 gambling penetration: **<0.5%**
 - Growth potential: **50x** for transparent solutions by 2028
@@ -94,47 +94,21 @@ Revolutionizing GambleFi with Arbitrum L2 & Chainlink VRF
 
 ---
 
-## Sustainable Revenue Generation
-
-- **House edge**: Competitive 1-3% (vs. 5-15% in traditional casinos)
-- **Revenue distribution**:
-  - 70% - Platform development and maintenance
-  - 20% - Liquidity provision for instant payouts
-  - 10% - Community rewards and incentives
-- **Projected monthly revenue**: $XXX,XXX based on X,XXX MAU
-
----
-
 ## Strategic Growth Plan
 
-- **Q4 2023**: Testnet launch on Arbitrum Sepolia ✓
-- **Q1 2024**: Security audit and optimizations ✓
-- **Q2 2024**: Mainnet launch on Arbitrum One
-- **Q3 2024**: CCIP integration for cross-chain functionality
-- **Q4 2024**: AI-powered dealer bots and SocialFi layer
-- **Q1 2025**: NFT player profiles and reputation system
-
+- **Q4 2025**: Testnet launch on Arbitrum Sepolia ✓
+- **Q1 2026**: Security audit and optimizations ✓
+- **Q1 2026**: Mainnet launch on Arbitrum One
+- **Q1 2026**: CCIP integration for cross-chain functionality
+- **Q2 2024**: AI-powered dealer bots and SocialFi layer
+- **Q2 2025**: NFT player profiles and reputation system
+...
+...
 ---
 
 ## Experienced Builders
 
-- **[Founder Name]**: Background in blockchain development and gaming
-- **[Team Member]**: Smart contract security specialist
-- **[Team Member]**: Frontend developer with X years experience
-- **[Team Member]**: Product designer focused on gamification
-- **[Advisor]**: Industry expert in GambleFi
-
----
-
-## Funding Requirements
-
-- **Raising**: $X,XXX,XXX
-- **Use of funds**:
-  - 40% - Technical development and security
-  - 25% - Marketing and user acquisition
-  - 20% - Operations and legal compliance
-  - 15% - Liquidity reserves
-
+- **[Amaan Sayyad]**: FullStack Blockchain Developer and Budding Entrepreneur
 ---
 
 ## Join the GambleFi Revolution
@@ -149,7 +123,7 @@ Revolutionizing GambleFi with Arbitrum L2 & Chainlink VRF
 
 ## Get in Touch
 
-- **Website**: [apt-casino.com](https://apt-casino.com)
-- **Email**: [contact@apt-casino.com](mailto:contact@apt-casino.com)
-- **Twitter**: [@aptcasino](https://twitter.com/aptcasino)
+- **Website**: [apt-casino-arbitrum.vercel.app](https://apt-casino-arbitrum.vercel.app/)
+- **Email**: [amaansayyad2001@gmail.com](mailto:amaansayyad2001@gmail.com)
+- **Twitter**: [@apt_casino](https://twitter.com/apt_casino)
 - **GitHub**: [github.com/AmaanSayyad/Apt-Casino-Arbitrum](https://github.com/AmaanSayyad/Apt-Casino-Arbitrum)
