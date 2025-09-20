@@ -34,9 +34,9 @@ export default function HeroSection() {
         `font-display capitalize flex text-white flex-col text-center items-center gap-6 z-10 max-w-7xl w-full mx-auto ${showAnnouncement ? '' : 'mt-14 sm:mt-14 md:mt-16'}`
       }>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-          Introducing{" "}
+          100% On-Chain{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-magic to-blue-magic">
-            APT-Casino
+          Randomness
           </span>
         </h1>
         <h2 className="text-[#B3B3B3] mt-4 text-lg sm:text-xl leading-relaxed max-w-3xl">
@@ -112,39 +112,7 @@ export default function HeroSection() {
         </div>
       </div>
       
-      {/* Feature Highlights */}
-      <div className="w-full max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-        <div className="bg-gradient-to-br from-black/60 to-purple-900/10 p-6 rounded-xl border border-purple-500/20">
-          <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-red-magic to-blue-magic flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-            </svg>
-          </div>
-          <h3 className="text-xl font-bold text-white mb-2">Gasless Experience</h3>
-          <p className="text-gray-300 text-sm">Play without MetaMask popups or gas fees. Our treasury handles all transactions behind the scenes.</p>
-        </div>
-        
-        <div className="bg-gradient-to-br from-black/60 to-purple-900/10 p-6 rounded-xl border border-purple-500/20">
-          <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-red-magic to-blue-magic flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
-          </div>
-          <h3 className="text-xl font-bold text-white mb-2">Zero Custody</h3>
-          <p className="text-gray-300 text-sm">Your funds remain in on-chain escrows. No tokens trapped in centralized wallets or opaque systems.</p>
-        </div>
-        
-        <div className="bg-gradient-to-br from-black/60 to-purple-900/10 p-6 rounded-xl border border-purple-500/20">
-          <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-red-magic to-blue-magic flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <h3 className="text-xl font-bold text-white mb-2">L1-Verified Security</h3>
-          <p className="text-gray-300 text-sm">Chainlink VRF randomness is Ethereum L1-verifiable, removing any chance of manipulation even at validator level.</p>
-        </div>
-      </div>
+      
     </section>
   );
 }
