@@ -26,6 +26,7 @@ import AIAutoBetting from "./components/AIAutoBetting";
 import AISettingsModal from "./components/AISettingsModal";
 import vrfProofService from '@/services/VRFProofService';
 import VRFProofRequiredModal from '@/components/VRF/VRFProofRequiredModal';
+import vrfLogger from '@/services/VRFLoggingService';
 
 export default function Mines() {
   // Game State
@@ -112,6 +113,9 @@ export default function Mines() {
   
   // Handle form submission
   const handleFormSubmit = (formData) => {
+    // Initialize game session logging
+    vrfLogger.initializeGameSession('MINES', 'standard');
+    
     // Check if VRF proofs are available for this game
     try {
       const vrfStats = vrfProofService.getProofStats();
@@ -123,8 +127,17 @@ export default function Mines() {
       }
       
       console.log(`✅ Mines game allowed: ${availableProofs} VRF proofs available`);
+      
+      // Log VRF request with game parameters
+      vrfLogger.logVRFRequest('MINES', 'standard', formData.betAmount || '0.0', {
+        mines: formData.mines || 0,
+        tilesToReveal: formData.tilesToReveal || 0,
+        isAutoBetting: formData.isAutoBetting || false
+      });
+      
     } catch (error) {
       console.error('❌ Error checking VRF proof availability:', error);
+      vrfLogger.logError(error, 'VRF proof availability check');
       alert('❌ Error checking VRF proof availability. Please try again.');
       return;
     }
@@ -196,6 +209,14 @@ export default function Mines() {
       const vrfResult = vrfProofService.generateRandomFromProof('MINES');
       console.log('🎲 Mines game completed, VRF proof consumed:', vrfResult);
       
+      // Log game outcome calculation
+      vrfLogger.logGameOutcome('MINES', vrfResult, result, {
+        mines: result.mines || 0,
+        tilesRevealed: result.tilesRevealed || 0,
+        betAmount: result.betAmount || '0.0',
+        calculationMethod: 'VRF-based randomness'
+      });
+      
       const newHistoryItem = {
         id: Date.now(),
         mines: result.mines || 0,
@@ -215,12 +236,14 @@ export default function Mines() {
       
       setGameHistory(prev => [newHistoryItem, ...prev].slice(0, 50));
       
-      // Log proof consumption
+      // Log proof consumption and session summary
       const stats = vrfProofService.getProofStats();
       console.log(`📊 VRF Proof Stats after Mines game:`, stats);
+      vrfLogger.logGameSessionSummary();
       
     } catch (error) {
       console.error('❌ Error consuming VRF proof for Mines game:', error);
+      vrfLogger.logError(error, 'VRF proof consumption for Mines game');
       
       // Still add the history item even if VRF proof consumption fails
       const newHistoryItem = {

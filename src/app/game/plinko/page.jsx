@@ -14,6 +14,7 @@ import { Typography } from "@mui/material";
 import { GiRollingDices, GiCardRandom, GiPokerHand } from "react-icons/gi";
 import { FaPercentage, FaBalanceScale, FaChartLine, FaCoins, FaTrophy, FaPlay, FaExternalLinkAlt } from "react-icons/fa";
 import vrfProofService from '../../../services/VRFProofService';
+import vrfLogger from '../../../services/VRFLoggingService';
 
 export default function Plinko() {
   const userBalance = useSelector((state) => state.balance.userBalance);

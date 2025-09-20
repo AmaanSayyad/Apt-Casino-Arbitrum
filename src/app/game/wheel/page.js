@@ -17,6 +17,7 @@ import { useNotification } from '@/components/NotificationSystem';
 import useWalletStatus from '@/hooks/useWalletStatus';
 import vrfProofService from '@/services/VRFProofService';
 import VRFProofRequiredModal from '@/components/VRF/VRFProofRequiredModal';
+import vrfLogger from '@/services/VRFLoggingService';
 
 // Import new components
 import WheelVideo from "./components/WheelVideo";

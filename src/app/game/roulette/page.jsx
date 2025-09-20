@@ -36,6 +36,7 @@ import { setBalance, setLoading, loadBalanceFromStorage } from '@/store/balanceS
 import vrfProofService from '@/services/VRFProofService';
 import { Shield } from "lucide-react";
 import VRFProofRequiredModal from '@/components/VRF/VRFProofRequiredModal';
+import vrfLogger from '@/services/VRFLoggingService';
 
 // Ethereum client functions will be added here when needed
 

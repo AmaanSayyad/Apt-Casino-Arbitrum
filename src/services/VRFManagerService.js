@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 import { TREASURY_CONFIG } from '../config/treasury.js';
 import VRF_CONFIG from '../config/vrf.js';
+import vrfLogger from './VRFLoggingService.js';
 
 // VRF Consumer Contract ABI (minimal)
 const VRF_CONSUMER_ABI = [
@@ -108,6 +109,9 @@ export class VRFManagerService {
       
       console.log(`🎲 Requesting VRF for ${gameType} (${gameSubType})...`);
       console.log(`💰 Treasury balance: ${ethers.formatEther(treasuryBalance)} ARB ETH`);
+      
+      // Log VRF request initiation
+      vrfLogger.logVRFRequest(gameType, gameSubType, '0.0', {});
 
       // Estimate gas
       const gasEstimate = await this.contract.requestRandomWords.estimateGas(
@@ -155,6 +159,9 @@ export class VRFManagerService {
       this.requestCache.set(requestIdNumber, vrfRequest);
 
       console.log(`✅ VRF requested successfully. Request ID: ${requestIdNumber}`);
+      
+      // Log VRF transaction details
+      vrfLogger.logVRFTransaction(tx.hash, requestIdNumber, receipt.gasUsed.toString(), receipt.blockNumber);
       
       return vrfRequest;
 
@@ -468,6 +475,10 @@ export class VRFManagerService {
         const requestIdString = requestId.toString();
         
         console.log(`🎉 VRF fulfilled: ${requestIdString}`);
+        
+        // Log VRF fulfillment
+        const fulfillmentTime = Date.now() - (this.requestCache.get(requestIdString)?.createdAt ? new Date(this.requestCache.get(requestIdString).createdAt).getTime() : Date.now());
+        vrfLogger.logVRFFulfillment(requestIdString, randomWords.map(word => word.toString()), fulfillmentTime);
         
         // Update cache
         if (this.requestCache.has(requestIdString)) {
