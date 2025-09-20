@@ -79,7 +79,7 @@ This means your roulette wheel resolves in under 2 seconds, with trustless fairn
 ## 🛠️ TECHNICAL ARCHITECTURE
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/02eb75a9-8cfe-4379-b3e4-ad202e0ff68c" alt="APT-Casino Architecture" width="800"/>
+  <img width="1681" height="761" alt="Screenshot 2025-09-21 at 1 34 18 AM" src="https://github.com/user-attachments/assets/fe6f3211-3e51-4be6-ab1a-5399386288a3" />
 </div>
 
 ### 🧠 System Components
