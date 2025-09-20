@@ -8,11 +8,11 @@ import { useRouter } from "next/navigation";
 import { useAccount, useChainId, useWalletClient } from 'wagmi';
 import { useSelector, useDispatch } from 'react-redux';
 import { setBalance, setLoading, loadBalanceFromStorage } from '@/store/balanceSlice';
-import ArbitrumConnectWalletButton from "./ArbitrumConnectWalletButton";
+import EthereumConnectWalletButton from "./EthereumConnectWalletButton";
 import WithdrawModal from "./WithdrawModal";
 import VRFPregenerationModal from "./VRF/VRFPregenerationModal";
 import { useVRFPregeneration } from '../hooks/useVRFPregeneration';
-import { useWalletPersistence } from '../hooks/useWalletPersistence';
+import { useGlobalWalletPersistence } from '../hooks/useGlobalWalletPersistence';
 
 
 import { useNotification } from './NotificationSystem';
@@ -127,14 +127,15 @@ export default function Navbar() {
   // VRF Pregeneration
   const { vrfStatus, generateVRFBatch, isGenerating, showModal, openModal, closeModal } = useVRFPregeneration();
 
+
   // Wallet connection with persistence
   const { isConnected, address } = useAccount();
   const chainId = useChainId();
   const { data: walletClient } = useWalletClient();
   const isWalletReady = isConnected && address;
   
-  // Use wallet persistence hook
-  useWalletPersistence();
+  // Use global wallet persistence hook
+  useGlobalWalletPersistence();
 
   // Debug wallet connection
   useEffect(() => {
@@ -162,6 +163,7 @@ export default function Navbar() {
       return () => clearTimeout(timer);
     }
   }, [isConnected, address, chainId, walletClient, isWalletReady]);
+
 
   // Mock notifications for UI purposes
   const [notifications, setNotifications] = useState([
@@ -285,7 +287,7 @@ export default function Navbar() {
       setIsDarkMode(savedMode === 'true');
     }
     
-    // Arbitrum wallet integration - simplified for testnet only
+    // Ethereum wallet integration - simplified for testnet only
     // In development mode, use mock data
     if (isDev) {
       setUserAddress('0x1234...dev');
@@ -659,7 +661,7 @@ export default function Navbar() {
     }
   };
 
-  // Detect Arbitrum wallet network (best-effort)
+  // Detect Ethereum wallet network (best-effort)
   useEffect(() => {
     const readNetwork = async () => {
       try {
@@ -1002,8 +1004,8 @@ export default function Navbar() {
               </button>
             )}
             
-            {/* Arbitrum Wallet Button */}
-            <ArbitrumConnectWalletButton />
+            {/* Ethereum Wallet Button */}
+            <EthereumConnectWalletButton />
       
           </div>
         </div>
@@ -1234,6 +1236,7 @@ export default function Navbar() {
         open={showModal}
         onClose={handleVRFModalClose}
       />
+      
     </>
   );
 }
