@@ -187,6 +187,24 @@ The application is fully responsive and optimized for:
 - **Hardware wallets**: Ledger, Trezor integration
 - **Software wallets**: MetaMask, Rainbow, Trust Wallet, etc.
 
+## 📣 COMMUNITY TRACTION
+
+APT-Casino has quickly gained significant traction in the Web3 community:
+
+<div align="center">
+  <a href="https://x.com/amaanbiz/status/1969349488033874149" target="_blank">
+    <img src="https://img.shields.io/badge/Viral_Tweet-11K+_Impressions-1DA1F2?style=for-the-badge&logo=x&logoColor=white" alt="Viral Tweet" />
+  </a>
+</div>
+
+Our [viral announcement](https://x.com/amaanbiz/status/1969349488033874149) generated:
+- **11,000+ impressions** in just 24 hours
+- **170+ likes** from Web3 enthusiasts
+- **20+ retweets** spreading the vision
+- **30+ comments** engaging with the concept
+
+The overwhelming response demonstrates the strong market demand for transparent, provably fair gambling solutions on Arbitrum.
+
 ## 🌀 FINAL WORD
 
 APT-Casino on Arbitrum is not just a casino. It's a **decentralized probability engine**, a **financialized entertainment protocol**, and a **GambleFi layer** redefining how risk, randomness, and rewards converge in Web3.
@@ -198,8 +216,8 @@ This is not gambling. This is mathematics you can verify, luck you can own, and 
 <div align="center">
   <p>Built with ❤️ by the APT-Casino Team</p>
   <p>
-    <a href="https://twitter.com/aptcasino">Twitter</a> •
-    <a href="https://discord.gg/aptcasino">Discord</a> •
+    <a href="https://twitter.com/amaanbiz">Twitter</a> •
     <a href="https://github.com/AmaanSayyad/Apt-Casino-Arbitrum">GitHub</a>
   </p>
 </div>
+
