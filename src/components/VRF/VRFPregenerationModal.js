@@ -205,11 +205,11 @@ export default function VRFPregenerationModal({ open, onClose }) {
       case 'generating':
         return 'Creating fair random numbers...';
       case 'completed':
-        return 'Random numbers created successfully!';
+        return 'Random numbers successfully created!';
       case 'error':
-        return 'Something went wrong';
+        return 'An error occurred';
       default:
-        return 'Random Number Generator';
+        return 'Fair Random Number Generator';
     }
   };
 
@@ -224,7 +224,6 @@ export default function VRFPregenerationModal({ open, onClose }) {
       onClose={handleClose}
       maxWidth="md"
       fullWidth
-      disablePortal={true} // Disable Portal to avoid React 19 ref warning
       sx={{
         zIndex: 9999,
         '& .MuiDialog-paper': {
@@ -249,12 +248,6 @@ export default function VRFPregenerationModal({ open, onClose }) {
           borderRadius: '16px',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.9)',
           background: 'linear-gradient(135deg, rgba(10, 0, 8, 0.98) 0%, rgba(26, 0, 21, 0.98) 100%)',
-        }
-      }}
-      // Fix for React 19 ref warning
-      slotProps={{
-        backdrop: { 
-          ref: undefined 
         }
       }}
     >
@@ -315,13 +308,13 @@ export default function VRFPregenerationModal({ open, onClose }) {
               mb: 3
             }}>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', mb: 2, fontSize: '1rem' }}>
-                <strong>🎮 What This Does:</strong> This button creates 200 fair random numbers that power our games. These random numbers ensure that game results are truly random and can't be predicted.
+                <strong>🎮 What This Does:</strong> Clicking this button creates 200 random numbers that will be used for fair gameplay. These random numbers are created by Chainlink, which is a trusted outside service that no one can cheat.
               </Typography>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem' }}>
-                <strong>🎲 For Each Game:</strong> We'll create 50 random numbers for each of our games: Mines, Plinko, Roulette, and Wheel.
+                <strong>📊 How They're Used:</strong> 50 random numbers for each game: Mines, Plinko, Roulette, and Wheel
               </Typography>
               
-              {/* Network Configuration Info */}
+              {/* Technical Details - Simplified */}
               <Box sx={{ mt: 2, p: 2, bgcolor: 'rgba(139, 35, 152, 0.2)', borderRadius: '8px' }}>
                 <Typography variant="subtitle2" sx={{ color: '#8B2398', mb: 1, fontWeight: 'bold' }}>
                   Technical Details:
@@ -330,9 +323,8 @@ export default function VRFPregenerationModal({ open, onClose }) {
                   const { network, contractAddress, treasuryAddress } = getNetworkInfo();
                   return (
                     <Box sx={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.8)' }}>
-                      <div>🌐 Blockchain: {network.toUpperCase()}</div>
-                      <div>📋 Smart Contract: {contractAddress.slice(0, 10)}...{contractAddress.slice(-8)}</div>
-                      <div>🏦 Casino Wallet: {treasuryAddress.slice(0, 10)}...{treasuryAddress.slice(-8)}</div>
+                      <div>🌐 Blockchain: {network.toUpperCase()} (where the random numbers are stored)</div>
+                      <div>🔒 Security: All random numbers can be verified by anyone</div>
                     </Box>
                   );
                 })()}
@@ -358,15 +350,7 @@ export default function VRFPregenerationModal({ open, onClose }) {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}>
-              Random Numbers Available
-            </Typography>
-            <Typography variant="body2" sx={{ 
-              color: 'rgba(255,255,255,0.9)', 
-              mb: 2,
-              textAlign: 'center',
-              fontSize: '0.9rem'
-            }}>
-              These are how many fair random numbers we currently have ready for each game
+              Available Random Numbers
             </Typography>
             <Grid container spacing={2}>
               {Object.entries(proofStats).map(([game, count]) => (
@@ -442,18 +426,18 @@ export default function VRFPregenerationModal({ open, onClose }) {
                 </Typography>
               </Box>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', mb: 2, fontSize: '1rem' }}>
-                Great! We've created {targetAmount} fair random numbers for your games. These will be used to determine game outcomes.
+                {targetAmount} fair random numbers have been successfully created! These will be used to make sure all games are fair.
               </Typography>
               
               {/* Transaction Details */}
               {transactionHash && (
                 <Box sx={{ mb: 3, p: 2, bgcolor: 'rgba(16, 185, 129, 0.1)', borderRadius: '8px' }}>
                   <Typography variant="subtitle2" sx={{ color: '#10B981', mb: 1, fontWeight: 'bold' }}>
-                    Verification Links:
+                    Blockchain Records:
                   </Typography>
                   <Box sx={{ mb: 2 }}>
                     <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem', mb: 1 }}>
-                      <strong>Blockchain Records:</strong> You can verify these random numbers on the blockchain:
+                      <strong>Verification Links:</strong> You can check these links to verify the random numbers on the blockchain:
                     </Typography>
                     {requestIds && requestIds.length > 0 && (
                       <Box sx={{ mt: 1 }}>
@@ -516,7 +500,7 @@ export default function VRFPregenerationModal({ open, onClose }) {
                     Random Numbers Created: {requestIds ? requestIds.length : 0}
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.8rem' }}>
-                    These random numbers are now ready to use in your games. Each game will use them one by one.
+                    These random numbers are now ready to use in your games.
                   </Typography>
                 </Box>
               )}
@@ -528,16 +512,16 @@ export default function VRFPregenerationModal({ open, onClose }) {
               </Typography>
               <Box sx={{ pl: 2 }}>
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', mb: 1, fontSize: '0.9rem' }}>
-                  • These random numbers are ready to use in your games
+                  • The random numbers are now ready to use in games
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', mb: 1, fontSize: '0.9rem' }}>
-                  • When you play a game, it uses one of these numbers
+                  • Each time you play a game, one random number is used
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', mb: 1, fontSize: '0.9rem' }}>
-                  • You can see which random number was used after each game
+                  • You can see the random number used for your game in the game history
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>
-                  • We'll automatically create more when we're running low
+                  • More random numbers are created automatically when needed
                 </Typography>
               </Box>
             </Paper>
@@ -557,7 +541,7 @@ export default function VRFPregenerationModal({ open, onClose }) {
                 </Typography>
               </Box>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem', mb: 2 }}>
-                Sorry, we couldn't create the random numbers:
+                Something went wrong while creating random numbers:
               </Typography>
               {errorMessage && (
                 <Box sx={{ p: 2, bgcolor: 'rgba(239, 68, 68, 0.2)', borderRadius: '8px', mb: 2 }}>
@@ -572,14 +556,14 @@ export default function VRFPregenerationModal({ open, onClose }) {
                     💡 How to fix this:
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.85rem' }}>
-                    1. We need to add more funds to our system<br/>
+                    1. We need to add more funds to the system<br/>
                     2. Please try again in a few minutes<br/>
                     3. If the problem continues, contact support
                   </Typography>
                 </Box>
               )}
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>
-                Please try again later. If the problem continues, you can still play games with the random numbers we already have.
+                Please try again in a few moments. If the problem continues, our team will be notified automatically.
               </Typography>
             </Paper>
           )}
@@ -604,7 +588,7 @@ export default function VRFPregenerationModal({ open, onClose }) {
               py: 1.5
             }}
           >
-            Create {targetAmount} Random Numbers
+            Generate Fair Random Numbers ({targetAmount})
           </Button>
         )}
         
@@ -636,24 +620,21 @@ export default function VRFPregenerationModal({ open, onClose }) {
               py: 1.5
             }}
           >
-            Try One More Time
+            Try Again Later
           </Button>
         )}
       </DialogActions>
 
-      {showSnackbar && (
-        <Snackbar
-          open={true}
-          autoHideDuration={6000}
-          onClose={() => setShowSnackbar(false)}
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-          TransitionComponent={undefined} // Disable transition to prevent scrollTop error
-        >
-          <CustomAlert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
-            {snackbarMessage}
-          </CustomAlert>
-        </Snackbar>
-      )}
+      <Snackbar
+        open={showSnackbar}
+        autoHideDuration={6000}
+        onClose={() => setShowSnackbar(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      >
+        <CustomAlert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
+          {snackbarMessage}
+        </CustomAlert>
+      </Snackbar>
     </Dialog>
   );
 }
