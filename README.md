@@ -328,7 +328,7 @@ APT-Casino on Arbitrum is not just a casino. It's a **decentralized probability 
 
 This is not gambling. This is mathematics you can verify, luck you can own, and trust you don't need.
 
-## Pitch Deck: https://www.figma.com/deck/3TtaQDRChEZ6R2MhaKR94p/APT-Casino?node-id=1-1812&p=f&t=2pYGZfnc3x4KfjzM-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1 
-## Demo Video: 
-## Pitch Video: https://youtu.be/TYKBEi8JDHc 
-## X: https://x.com/amaanbiz/status/1969349488033874149
+- **Pitch Deck:** https://www.figma.com/deck/3TtaQDRChEZ6R2MhaKR94p/APT-Casino?node-id=1-1812&p=f&t=2pYGZfnc3x4KfjzM-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1 
+- **Demo Video:** https://youtu.be/kIEVCxtTdQc 
+- **Pitch Video:** https://youtu.be/TYKBEi8JDHc 
+- **X:** https://x.com/amaanbiz/status/1969349488033874149
